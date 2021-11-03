@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dev-closememo-command
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: dev-closememo-command
+  template:
+    metadata:
+      labels:
+        app: dev-closememo-command
+    spec:
+      containers:
+        - image: reg.bitgadak.com/closememo/command:latest
+          name: dev-closememo-command
+          ports:
+            - containerPort: 10081
+          env:
+            - name: PROFILE
+              value: dev
+      imagePullSecrets:
+        - name: regcred
