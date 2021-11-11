@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dev-closememo-mailsender
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: dev-closememo-mailsender
+  template:
+    metadata:
+      labels:
+        app: dev-closememo-mailsender
+    spec:
+      containers:
+        - image: reg.bitgadak.com/closememo/mailsender:latest
+          name: dev-closememo-mailsender
+          ports:
+            - containerPort: 10083
+          env:
+            - name: PROFILE
+              value: dev
+      imagePullSecrets:
+        - name: regcred
