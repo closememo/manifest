@@ -14,12 +14,12 @@ spec:
         app: dev-closememo-gateway
     spec:
       containers:
-        - image: reg.bitgadak.com/closememo/gateway:latest
-          name: dev-closememo-gateway
-          ports:
-            - containerPort: 10080
-          env:
-            - name: PROFILE
-              value: dev
+      - image: reg.bitgadak.com/closememo/gateway:202111121506
+        name: dev-closememo-gateway
+        ports:
+        - containerPort: 10080
+        env:
+        - name: PROFILE
+          value: dev
       imagePullSecrets:
-        - name: regcred
+      - name: regcred
