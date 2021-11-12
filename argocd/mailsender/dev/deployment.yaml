@@ -14,12 +14,12 @@ spec:
         app: dev-closememo-mailsender
     spec:
       containers:
-        - image: reg.bitgadak.com/closememo/mailsender:latest
-          name: dev-closememo-mailsender
-          ports:
-            - containerPort: 10083
-          env:
-            - name: PROFILE
-              value: dev
+      - image: reg.bitgadak.com/closememo/mailsender:202111120004
+        name: dev-closememo-mailsender
+        ports:
+        - containerPort: 10083
+        env:
+        - name: PROFILE
+          value: dev
       imagePullSecrets:
-        - name: regcred
+      - name: regcred
