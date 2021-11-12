@@ -14,7 +14,7 @@ spec:
         app: dev-closememo-query
     spec:
       containers:
-      - image: reg.bitgadak.com/closememo/query:latest
+      - image: reg.bitgadak.com/closememo/query:202111121543
         name: dev-closememo-query
         ports:
         - containerPort: 10082
@@ -22,11 +22,11 @@ spec:
         - name: PROFILE
           value: dev
       hostAliases:
-        - ip: '10.10.101.102'
-          hostnames:
-            - 'dev.kafka1.closememo.com'
-        - ip: '10.10.101.109'
-          hostnames:
-            - 'dev.es.closememo.com'
+      - ip: 10.10.101.102
+        hostnames:
+        - dev.kafka1.closememo.com
+      - ip: 10.10.101.109
+        hostnames:
+        - dev.es.closememo.com
       imagePullSecrets:
       - name: regcred
