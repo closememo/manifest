@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: closememo-command
+spec:
+  replicas: 2
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: closememo-command
+  template:
+    metadata:
+      labels:
+        app: closememo-command
+    spec:
+      containers:
+      - image: reg.bitgadak.com/closememo/command:latest
+        name: closememo-command
+        ports:
+        - containerPort: 10081
+        env:
+        - name: PROFILE
+          value: real
+      hostAliases:
+      - ip: 10.10.101.123
+        hostnames:
+        - db.closememo.com
+      - ip: 10.10.101.123
+        hostnames:
+        - kafka1.closememo.com
+      - ip: 10.10.101.110
+        hostnames:
+        - es.closememo.com
+      imagePullSecrets:
+      - name: regcred
+      nodeSelector:
+        phase: real

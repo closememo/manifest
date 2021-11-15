@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: closememo-query
+spec:
+  ports:
+    - port: 10082
+      targetPort: 10082
+  selector:
+    app: closememo-query

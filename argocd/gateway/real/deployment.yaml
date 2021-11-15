@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: closememo-gateway
+spec:
+  replicas: 2
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: closememo-gateway
+  template:
+    metadata:
+      labels:
+        app: closememo-gateway
+    spec:
+      containers:
+      - image: reg.bitgadak.com/closememo/gateway:latest
+        name: closememo-gateway
+        ports:
+        - containerPort: 10080
+        env:
+        - name: PROFILE
+          value: real
+      imagePullSecrets:
+      - name: regcred
+      nodeSelector:
+        phase: real
