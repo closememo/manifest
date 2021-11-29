@@ -14,7 +14,7 @@ spec:
         app: closememo-gateway
     spec:
       containers:
-      - image: reg.bitgadak.com/closememo/gateway:202111182359
+      - image: reg.bitgadak.com/closememo/gateway:202111292106
         name: closememo-gateway
         ports:
         - containerPort: 10080

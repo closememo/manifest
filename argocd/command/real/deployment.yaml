@@ -14,7 +14,7 @@ spec:
         app: closememo-command
     spec:
       containers:
-      - image: reg.bitgadak.com/closememo/command:202111200119
+      - image: reg.bitgadak.com/closememo/command:202111292104
         name: closememo-command
         ports:
         - containerPort: 10081
