@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: closememo-autotag
+spec:
+  replicas: 2
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: closememo-autotag
+  template:
+    metadata:
+      labels:
+        app: closememo-autotag
+    spec:
+      containers:
+      - image: reg.bitgadak.com/closememo/autotag:latest
+        name: closememo-autotag
+        ports:
+        - containerPort: 10084
+        env:
+        - name: PROFILE
+          value: real
+      imagePullSecrets:
+      - name: regcred
+      nodeSelector:
+        phase: real
