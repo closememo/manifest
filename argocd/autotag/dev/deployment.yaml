@@ -21,5 +21,9 @@ spec:
         env:
         - name: PROFILE
           value: dev
+      hostAliases:
+      - ip: 10.10.101.102
+        hostnames:
+        - dev.kafka1.closememo.com
       imagePullSecrets:
       - name: regcred
