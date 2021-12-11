@@ -14,7 +14,7 @@ spec:
         app: closememo-autotag
     spec:
       containers:
-      - image: reg.bitgadak.com/closememo/autotag:202112101755
+      - image: reg.bitgadak.com/closememo/autotag:202112120134
         name: closememo-autotag
         ports:
         - containerPort: 10084
