@@ -14,7 +14,7 @@ spec:
         app: dev-closememo-mailsender
     spec:
       containers:
-      - image: reg.bitgadak.com/closememo/mailsender:202112120137
+      - image: reg.bitgadak.com/closememo/mailsender:202112130201
         name: dev-closememo-mailsender
         ports:
         - containerPort: 10083
