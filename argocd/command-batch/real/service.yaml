@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: closememo-command-batch
+spec:
+  ports:
+    - port: 10081
+      targetPort: 10081
+  selector:
+    app: closememo-command-batch

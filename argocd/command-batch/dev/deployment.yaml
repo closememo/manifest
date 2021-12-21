@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dev-closememo-command-batch
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: dev-closememo-command-batch
+  template:
+    metadata:
+      labels:
+        app: dev-closememo-command-batch
+    spec:
+      containers:
+      - image: reg.bitgadak.com/closememo/command-batch:latest
+        name: dev-closememo-command-batch
+        ports:
+        - containerPort: 10081
+        env:
+        - name: PROFILE
+          value: dev
+      hostAliases:
+      - ip: 10.10.101.102
+        hostnames:
+        - dev.kafka1.closememo.com
+      - ip: 10.10.101.109
+        hostnames:
+        - dev.es.closememo.com
+      imagePullSecrets:
+      - name: regcred
