@@ -14,7 +14,7 @@ spec:
         app: closememo-query
     spec:
       containers:
-      - image: reg.bitgadak.com/closememo/query:202112120138
+      - image: reg.bitgadak.com/closememo/query:202112211455
         name: closememo-query
         ports:
         - containerPort: 10082
