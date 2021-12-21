@@ -27,3 +27,5 @@ spec:
         - dev.kafka1.closememo.com
       imagePullSecrets:
       - name: regcred
+      nodeSelector:
+        phase: dev

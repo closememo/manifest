@@ -23,3 +23,5 @@ spec:
           value: dev
       imagePullSecrets:
       - name: regcred
+      nodeSelector:
+        phase: dev

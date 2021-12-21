@@ -30,3 +30,5 @@ spec:
         - dev.es.closememo.com
       imagePullSecrets:
       - name: regcred
+      nodeSelector:
+        phase: dev
