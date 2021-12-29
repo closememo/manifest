@@ -14,7 +14,7 @@ spec:
         app: closememo-command-batch
     spec:
       containers:
-      - image: reg.bitgadak.com/closememo/command-batch:latest
+      - image: reg.bitgadak.com/closememo/command-batch:202112292045
         name: closememo-command-batch
         ports:
         - containerPort: 10081
