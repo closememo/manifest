@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dev-closememo-query-batch
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: dev-closememo-query-batch
+  template:
+    metadata:
+      labels:
+        app: dev-closememo-query-batch
+    spec:
+      containers:
+      - image: reg.bitgadak.com/closememo/query-batch:latest
+        name: dev-closememo-query-batch
+        ports:
+        - containerPort: 10082
+        env:
+        - name: PROFILE
+          value: dev
+      hostAliases:
+      - ip: 10.10.101.102
+        hostnames:
+        - dev.kafka1.closememo.com
+      - ip: 10.10.101.109
+        hostnames:
+        - dev.es.closememo.com
+      imagePullSecrets:
+      - name: regcred
+      nodeSelector:
+        phase: dev
