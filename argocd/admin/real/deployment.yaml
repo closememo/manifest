@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: closememo-admin
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: closememo-admin
+  template:
+    metadata:
+      labels:
+        app: closememo-admin
+    spec:
+      containers:
+      - image: reg.bitgadak.com/closememo/admin:latest
+        name: closememo-admin
+        ports:
+        - containerPort: 10091
+        env:
+        - name: PROFILE
+          value: real
+      hostAliases:
+      - ip: 10.10.101.123
+        hostnames:
+        - db.closememo.com
+      imagePullSecrets:
+      - name: regcred
+      nodeSelector:
+        phase: real

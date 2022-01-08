@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: closememo-admin
+spec:
+  ports:
+    - port: 10091
+      targetPort: 10091
+  selector:
+    app: closememo-admin
