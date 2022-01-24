@@ -14,7 +14,7 @@ spec:
         app: closememo-admin
     spec:
       containers:
-      - image: reg.bitgadak.com/closememo/admin:202201102026
+      - image: reg.bitgadak.com/closememo/admin:202201212317
         name: closememo-admin
         ports:
         - containerPort: 10091
