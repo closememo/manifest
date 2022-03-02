@@ -21,6 +21,12 @@ spec:
         env:
         - name: PROFILE
           value: real
+        readinessProbe:
+          httpGet:
+            path: /health-check
+            port: 10081
+          initialDelaySeconds: 10
+          periodSeconds: 3
       hostAliases:
       - ip: 10.10.101.123
         hostnames:
