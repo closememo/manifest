@@ -28,7 +28,7 @@ pipeline {
                     $class: 'GitSCM',
                     branches: [[name: 'refs/heads/master']],
                     extensions: [[$class: 'CleanCheckout']],
-                    userRemoteConfigs: [[credentialsId: 'bitgadak-nemomemo', url: 'https://github.com/closememo/manifest.git']]
+                    userRemoteConfigs: [[credentialsId: 'jenkins-bitgadak-closememo', url: 'https://github.com/closememo/manifest.git']]
                 ])
             }
         }
@@ -52,7 +52,7 @@ pipeline {
         stage('Push') {
             steps {
                 withCredentials([gitUsernamePassword(
-                        credentialsId: 'bitgadak-nemomemo',
+                        credentialsId: 'jenkins-bitgadak-closememo',
                         gitToolName: 'git-tool')]) {
                     sh 'git config --local user.name bitgadak'
                     sh 'git config --local user.email bitgadak@gmail.com'
