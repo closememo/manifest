@@ -14,10 +14,10 @@ spec:
         app: dev-closememo-command
     spec:
       volumes:
-        - name: logs
-          emptyDir: {}
+      - name: logs
+        emptyDir: {}
       containers:
-      - image: reg.bitgadak.com/closememo/command:202205021141
+      - image: reg.bitgadak.com/closememo/command:202205021357
         name: dev-closememo-command
         ports:
         - containerPort: 10081
@@ -31,13 +31,13 @@ spec:
           initialDelaySeconds: 10
           periodSeconds: 3
         volumeMounts:
-          - name: logs
-            mountPath: /home/deployer/logs
+        - name: logs
+          mountPath: /home/deployer/logs
       - image: openreg.closememo.com/closememo/filebeat:0.2
         name: dev-closememo-command-filebeat
         volumeMounts:
-          - name: logs
-            mountPath: /target/logs
+        - name: logs
+          mountPath: /target/logs
       hostAliases:
       - ip: 10.10.101.102
         hostnames:
