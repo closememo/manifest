@@ -17,7 +17,7 @@ spec:
       - name: logs
         emptyDir: {}
       containers:
-      - image: reg.bitgadak.com/closememo/query:202205031829
+      - image: reg.bitgadak.com/closememo/query:202205031727
         name: closememo-query
         ports:
         - containerPort: 10082
@@ -33,7 +33,7 @@ spec:
         volumeMounts:
         - name: logs
           mountPath: /home/deployer/logs
-      - image: openreg.closememo.com/closememo/filebeat:202205031649
+      - image: openreg.closememo.com/closememo/filebeat:202205031829
         name: closememo-query-filebeat
         volumeMounts:
         - name: logs
