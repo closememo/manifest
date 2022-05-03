@@ -13,8 +13,11 @@ spec:
       labels:
         app: closememo-gateway
     spec:
+      volumes:
+      - name: logs
+        emptyDir: {}
       containers:
-      - image: reg.bitgadak.com/closememo/gateway:202204261618
+      - image: reg.bitgadak.com/closememo/gateway:202205021954
         name: closememo-gateway
         ports:
         - containerPort: 10080
@@ -27,6 +30,14 @@ spec:
             port: 10080
           initialDelaySeconds: 10
           periodSeconds: 3
+        volumeMounts:
+        - name: logs
+          mountPath: /home/deployer/logs
+      - image: openreg.closememo.com/closememo/filebeat:202205031649
+        name: closememo-gateway-filebeat
+        volumeMounts:
+        - name: logs
+          mountPath: /target/logs
       imagePullSecrets:
       - name: regcred
       nodeSelector:
