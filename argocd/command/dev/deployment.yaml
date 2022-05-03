@@ -33,7 +33,7 @@ spec:
         volumeMounts:
         - name: logs
           mountPath: /home/deployer/logs
-      - image: openreg.closememo.com/closememo/filebeat:0.2
+      - image: openreg.closememo.com/closememo/dev-filebeat:0.1
         name: dev-closememo-command-filebeat
         volumeMounts:
         - name: logs
