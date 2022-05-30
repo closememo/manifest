@@ -17,7 +17,7 @@ spec:
       - name: logs
         emptyDir: {}
       containers:
-      - image: reg.bitgadak.com/closememo/gateway:202205021954
+      - image: reg.bitgadak.com/closememo/gateway:202205261353
         name: closememo-gateway
         ports:
         - containerPort: 10080
